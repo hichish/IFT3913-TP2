@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/IFT3913-TP2.iml" filepath="$PROJECT_DIR$/.idea/IFT3913-TP2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testDependency/testDependency.iml" filepath="$PROJECT_DIR$/testDependency/testDependency.iml" />
+    </modules>
+  </component>
+</project>
