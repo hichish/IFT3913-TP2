@@ -1,11 +1,14 @@
 @echo off
 echo "Debut de l'analyse du Projet"
+echo.
 
 echo "Question 1: Est-ce qu il y a assez de tests?"
+echo.
 
-echo "Calcul de la metrique couverture des tests:"
+echo "Calcul de la metrique Correspondances des test:"
+echo "On s'attend a au moins 50%"
 
-cd jfreechart-master
+echo.
 
-mvn clean test > nul 
+java -jar TestCorresp.jar ./jfreechart-master
 
