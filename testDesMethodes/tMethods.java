@@ -65,7 +65,7 @@ public class tMethods {
     public static String interTropComp(File f) throws ClassNotFoundException {
          File files[];
          if(f.isFile()) {
-             if (f.getAbsolutePath().contains(".java") && f.getAbsolutePath().contains("src/test")) {
+             if (f.getAbsolutePath().contains(".java") && f.getAbsolutePath().contains("test")) {
                  double tAssertMethod=(double) tassert(f.getAbsolutePath())/tmethods(f.getAbsolutePath());
                  hashTmethods.put(f.getName(),tAssertMethod);
              }
@@ -80,7 +80,8 @@ public class tMethods {
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        File mainFolder = new File(args[0]);
+        //File mainFolder = new File(args[0]);
+        File mainFolder = new File("C:/Users/hiche/OneDrive/Bureau/IFT3913-TP2/jfreechart-master");
         interTropComp(mainFolder);
         int i =0;
         int seuil = 5;

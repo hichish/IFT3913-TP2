@@ -45,7 +45,7 @@ public class testDependency {
     public static String testDependencies(File f) throws ClassNotFoundException {
          File files[];
          if(f.isFile()) {
-             if (f.getAbsolutePath().contains(".java") && f.getAbsolutePath().contains("src/test")) {
+             if (f.getAbsolutePath().contains(".java") && f.getAbsolutePath().contains("test")) {
                  tdepend(f.getAbsolutePath());
              }
          }
