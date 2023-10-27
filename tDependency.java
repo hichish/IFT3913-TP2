@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class testDependency {
+public class tDependency {
 
     static HashMap<String, Double> dependency = new HashMap<>();
 
@@ -60,12 +60,17 @@ public class testDependency {
 
     public static void main(String[] args) throws ClassNotFoundException {
         File mainFolder = new File(args[0]);
+        //File mainFolder = new File("/Users/ahmadbary/IFT3913-TP2/jfreechart-master");
         testDependencies(mainFolder);
+        int i =0;
+        int seuil = 100;
         for (String key: dependency.keySet()) {
-            if (dependency.get(key) >= 100) {
-                System.out.println("the dependancy "+key.substring(0,key.length()-1) +" is used "+dependency.get(key)+" times" );
+            if (dependency.get(key) >= seuil) {
+                i++;
+                //System.out.println("the dependancy "+key.substring(0,key.length()-1) +" is used "+dependency.get(key)+" times" );
             }
             //System.out.println("the dependancy "+key.substring(0,key.length()-1) +" is used "+dependency.get(key)+" times" );
         }
+        System.out.println("There are "+i+" classes thar are used more than "+seuil+" times");
     }
 }

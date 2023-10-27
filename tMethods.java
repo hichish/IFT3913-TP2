@@ -1,5 +1,3 @@
-package testDesMethodes;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -81,7 +79,7 @@ public class tMethods {
 
     public static void main(String[] args) throws ClassNotFoundException {
         //File mainFolder = new File(args[0]);
-        File mainFolder = new File("C:/Users/hiche/OneDrive/Bureau/IFT3913-TP2/jfreechart-master");
+        File mainFolder = new File(args[0]);
         interTropComp(mainFolder);
         int i =0;
         int seuil = 5;
@@ -90,10 +88,10 @@ public class tMethods {
             //System.out.println(i+". The class "+ key + " has a "+ hashTmethods.get(key)+" density of assert per method");
             if (hashTmethods.get(key) >= seuil) {
                 i++;
-                System.out.println(i+". The class "+ key + " has a "+ hashTmethods.get(key)+" density of assert per method");
+                //System.out.println(i+". The class "+ key + " has a "+ hashTmethods.get(key)+" density of assert per method");
             }
         }
         double pourcentage = ((double)i/360)*100;
-        System.out.println(pourcentage +"% des test on des methods quis ont "+ seuil +" assert par methode ou plus");
+        System.out.println((int)pourcentage +"% des test on des methods quis ont "+ seuil +" assert par methode ou plus");
     }
 }

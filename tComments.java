@@ -1,5 +1,3 @@
-package testDesCommentaires;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -91,12 +89,12 @@ public class tComments {
 //            System.out.println(i+". The class "+key+"has "+hashComments.get(key)+"% comments");
             if (hashComments.get(key) < seuil) {
                 i++;
-                System.out.println(i+". The class "+key+"has "+hashComments.get(key)+"% comments");
+                //System.out.println(i+". The class "+key+"has "+hashComments.get(key)+"% comments");
             }
         }
         double pourcentage = ((double)i/360)*100;
         System.out.println("There are "+i+" classes that less than 25% of their code " +
                 "are comments that means that they are not well documented, that means that" +
-                " "+pourcentage+"% of classes inside the project are not well documented");
+                " "+(int) pourcentage+"% of classes inside the project are not well documented");
     }
 }
