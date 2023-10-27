@@ -1,4 +1,4 @@
-package testComments;
+package testDesCommentaires;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class testComment {
+public class tComments {
     static HashMap<String, Double> hashComments = new HashMap<>();
     public static double tloc(String path) {
         if (!path.contains(".java")) {

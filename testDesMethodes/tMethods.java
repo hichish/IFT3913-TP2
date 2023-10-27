@@ -1,11 +1,11 @@
-package testMethods;
+package testDesMethodes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class testMethods {
+public class tMethods {
     static HashMap<String, Double> hashTmethods = new HashMap<>();
     public static int tassert(String path){
         // make sure that the file has the right extension
@@ -95,5 +95,4 @@ public class testMethods {
         double pourcentage = ((double)i/360)*100;
         System.out.println(pourcentage +"% des test on des methods quis ont "+ seuil +" assert par methode ou plus");
     }
-
 }
