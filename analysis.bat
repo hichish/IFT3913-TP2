@@ -7,8 +7,12 @@ echo.
 
 echo "Calcul de la metrique Correspondances des test:"
 echo "On s'attend a au moins 50%"
-
+echo.
+java -jar TestCorresp.jar ./jfreechart-master
 echo.
 
-java -jar TestCorresp.jar ./jfreechart-master
-
+echo "Calcul de la metrique Couverture des branches du code source:"
+echo "On s'attend a au moins 80%"
+echo.
+java -jar branchCoverage.jar ./jfreechart-master
+echo.
