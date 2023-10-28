@@ -83,6 +83,7 @@ public class tMethods {
         interTropComp(mainFolder);
         int i =0;
         int seuil = 5;
+        int nombreFichierProject=359;
         for (String key: hashTmethods.keySet()) {
 
             //System.out.println(i+". The class "+ key + " has a "+ hashTmethods.get(key)+" density of assert per method");
@@ -91,7 +92,10 @@ public class tMethods {
                 //System.out.println(i+". The class "+ key + " has a "+ hashTmethods.get(key)+" density of assert per method");
             }
         }
-        double pourcentage = ((double)i/360)*100;
-        System.out.println((int)pourcentage +"% des test on des methods quis ont "+ seuil +" assert par methode ou plus");
+        //System.out.println("Il y a "+i+" classe qui ont "+seuil+" assert par methode ou plus");
+        double pourcentage = ((double)i/nombreFichierProject)*100;
+        //System.out.println((int)pourcentage +"% des classe du projet");
+        System.out.println("testMethods: ");
+        System.out.println(i+" classes ce qui represente "+(int)pourcentage+"% des classes du projet");
     }
 }

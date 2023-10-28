@@ -63,7 +63,8 @@ public class tDependency {
         //File mainFolder = new File("/Users/ahmadbary/IFT3913-TP2/jfreechart-master");
         testDependencies(mainFolder);
         int i =0;
-        int seuil = 100;
+        int seuil = 10;
+        int nombreFichierProject=359;
         for (String key: dependency.keySet()) {
             if (dependency.get(key) >= seuil) {
                 i++;
@@ -71,6 +72,11 @@ public class tDependency {
             }
             //System.out.println("the dependancy "+key.substring(0,key.length()-1) +" is used "+dependency.get(key)+" times" );
         }
-        System.out.println("There are "+i+" classes thar are used more than "+seuil+" times");
+        //System.out.println("Il y a "+i+" classe qui sont utiliser plus que "+seuil+" fois ou plus");
+        double pourcentage =  ((double)i/nombreFichierProject)*100;
+        //System.out.println((int)pourcentage+"% des classes du projet");
+        //System.out.println("Test de Dependence: "+(int)pourcentage+"%");
+        System.out.println("testDependency: ");
+        System.out.println(i+" classes ce qui represente "+(int)pourcentage+"% des classes du projet");
     }
 }
