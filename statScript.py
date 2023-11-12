@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.stats import shapiro
 # Read CSV file into a DataFrame
 df = pd.read_csv('jfreechart-test-stats.csv')
 
@@ -52,3 +53,49 @@ plt.show()
 
 
 print(getBoxPlotValues('TASSERT'))
+
+slope, intercept = np.polyfit(df['TLOC'], df['TASSERT'], 1)
+correlation_coefficient = np.corrcoef(df['TLOC'], df['TASSERT'])[0, 1]
+
+print(f"Le coefficient de regression lineaire entre TLOC et  est: {correlation_coefficient:.2f}")
+print(f"L'equation de la droite de regression est : y = {slope:.2f}x + {intercept:.2f}")
+
+# Création du nuage de points
+plt.scatter(df['TLOC'], df['TASSERT'])
+
+plt.plot(df['TLOC'], slope * df['TLOC'] + intercept, color='green', label='Droite de Régression')
+# Ajout des labels et du titre
+plt.xlabel('TLOC')
+plt.ylabel('TASSERT')
+
+# Affichage du diagramme
+plt.show()
+
+#WMC and TASSERT
+slope, intercept = np.polyfit(df['WMC'], df['TASSERT'], 1)
+correlation_coefficient = np.corrcoef(df['WMC'], df['TASSERT'])[0, 1]
+
+print(f"Le coefficient de regression lineaire entre WMC et TASSERT est: {correlation_coefficient:.2f}")
+print(f"L'equation de la droite de regression est : y = {slope:.2f}x + {intercept:.2f}")
+
+# Création du nuage de points
+plt.scatter(df['WMC'], df['TASSERT'])
+
+plt.plot(df['WMC'], slope * df['WMC'] + intercept, color='green', label='Droite de Régression')
+# Ajout des labels et du titre
+plt.xlabel('WMC')
+plt.ylabel('TASSERT')
+
+# Affichage du diagramme
+plt.show()
+
+statistic, p_value = shapiro(df['TASSERT'])
+
+print(f"Statistique du test : {statistic:.4f}")
+print(f"Valeur de p associée : {p_value:.4f}")
+
+# Interprétation
+if p_value > 0.05:
+    print("Les données semblent suivre une distribution normale.")
+else:
+    print("Les données ne suivent probablement pas une distribution normale.")
