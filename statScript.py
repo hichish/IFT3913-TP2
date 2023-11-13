@@ -80,7 +80,6 @@ print(f"L'equation de la droite de regression est : y = {slope:.2f}x + {intercep
 
 # Création du nuage de points
 plt.scatter(df['WMC'], df['TASSERT'])
-
 plt.plot(df['WMC'], slope * df['WMC'] + intercept, color='green', label='Droite de Régression')
 # Ajout des labels et du titre
 plt.xlabel('WMC')
@@ -88,14 +87,3 @@ plt.ylabel('TASSERT')
 
 # Affichage du diagramme
 plt.show()
-
-statistic, p_value = shapiro(df['TASSERT'])
-
-print(f"Statistique du test : {statistic:.4f}")
-print(f"Valeur de p associée : {p_value:.4f}")
-
-# Interprétation
-if p_value > 0.05:
-    print("Les données semblent suivre une distribution normale.")
-else:
-    print("Les données ne suivent probablement pas une distribution normale.")
