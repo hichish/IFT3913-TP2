@@ -27,12 +27,13 @@ public class trpCompCsv {
                     int tassert = Integer.parseInt(parts[3].trim());
 
                     double tcmp = (double) tloc / tassert;
-                    if (tassert > 20 ) {
-                        dataList.add(new DataEntry(classPath, tloc, wmc, tassert, tcmp));
-                    }
-                    else{
-                        dataList1.add(new DataEntry(classPath, tloc, wmc, tassert, tcmp));
-                    }
+//                    if (tassert > 20 ) {
+//                        dataList.add(new DataEntry(classPath, tloc, wmc, tassert, tcmp));
+//                    }
+//                    else{
+//                        dataList1.add(new DataEntry(classPath, tloc, wmc, tassert, tcmp));
+//                    }
+                    dataList.add(new DataEntry(classPath, tloc, wmc, tassert, tcmp));
 
                 } else {
                     System.err.println("Invalid line format: " + line);
@@ -41,10 +42,7 @@ public class trpCompCsv {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("The number of classes considered complexe that have more than 20 assertions is: ");
         tropComp(dataList);
-        System.out.println("The number of classes considered complexe that have less than 20 assertions is: ");
-        tropComp(dataList1);
     }
     public static void tropComp(List<DataEntry> name){
         // Sort by TLOC in ascending order
@@ -58,7 +56,7 @@ public class trpCompCsv {
                 .collect(Collectors.toList());
 
         // Find the top 10% common between both
-        int top10Percent = (int) (0.1 * Math.min(sortedByTloc.size(), sortedByTcmp.size()));
+        int top10Percent = (int) (0.2 * Math.min(sortedByTloc.size(), sortedByTcmp.size()));
         int numberSkip = sortedByTloc.size()-top10Percent;
         for (int i = 0; i < numberSkip; i++) {
             sortedByTcmp.remove(0);
@@ -77,16 +75,17 @@ public class trpCompCsv {
 
         // Print the common entries
         //System.out.println("Top 5% common entries between TLOC and TCMP:");
-        int j = 0;
+        int j = 0; //+20
+        int i = 0; //-20
         for (DataEntry entry : commonEntries) {
-//            System.out.println("Class Path: " + entry.getClassPath() +
-//                    ", TLOC: " + entry.getTloc() +
-//                    ", WMC: " + entry.getWmc() +
-//                    ", TASSERT: " + entry.getTassert() +
-//                    ", TCMP: " + entry.getTcmp());
-            j++;
+            if(entry.getTassert()>20){
+                j++;
+            }
+            else {i++;}
+
         }
-        System.out.println(j);
+        System.out.println("The number of classes considered complexe that have more than 20 assertions is: "+j);
+        System.out.println("The number of classes considered complexe that have less than 20 assertions is: "+i);
     }
 }
 
